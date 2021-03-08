@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
+	<!-- include A-Frame obviously -->
+	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+	<!-- include aframe-extras for animation-mixer -->
+	<script src="js/aframe-extras.js"></script>
+	<!-- include aframe-text-geomtry for text -->
+    <script src="js/aframe-text-geometry-component.min.js"></script>
+
+    <script>
+    	var scene = document.querySelector('a-scene');
+    	
+    	AFRAME.registerComponent('animation-control', 
+    		{schema: {default: ''},
+			init() {
+				const bot = document.querySelector('#bot');  
+				var scene = document.querySelector('a-scene');
+			  
+				this.el.addEventListener('click', () => {
+					bot.setAttribute("animation-mixer",this.data);			 
+				}); 
+		  	}
+		});
+    </script>
+
+</head>
+<body>
+	<a-scene>
+		<a-assets>
+      		<a-asset-item id="model" src="test2.gltf"></a-asset-item>
+    	</a-assets>
+
+    	<a-entity gltf-model="#model"></a-entity>
+	</a-scene>
+</body>
+</html>
