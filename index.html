@@ -17,22 +17,20 @@
       		<a-asset-item id="model" src="test2.gltf"></a-asset-item>
     	</a-assets>
 
-    	<a-marker preset='hiro'>
-    		<a-entity 
-	    		scale="1 1 1"
-	            position="0 1 -2.5"
-	            rotation="0 0 0"
-	    		gltf-model="#model"
-	    		animation-mixer="clip: Idle"
-	    	></a-entity>
-    		<a-entity 
-	    		scale="1 1 1"
-	            position="0 1 -1"
-	            rotation="-90 0 0"
-	    		gltf-model="#model"
-	    		animation-mixer="clip: Idle"
-	    	></a-entity>
-    	</a-marker>
+    	<a-entity 
+    		scale="1 1 1"
+            position="0 1 -2.5"
+            rotation="0 0 0"
+    		gltf-model="#model"
+    		animation-mixer="clip: Idle"
+    	></a-entity>
+		<a-entity 
+    		scale="1 1 1"
+            position="0 1 -1"
+            rotation="-90 0 0"
+    		gltf-model="#model"
+    		animation-mixer="clip: Idle"
+    	></a-entity>
 
     	<a-marker-camera type='pattern' url='pattern-marker.patt'></a-marker-camera>
 	</a-scene>
