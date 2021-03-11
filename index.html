@@ -18,7 +18,7 @@
 				this.el.addEventListener('click', function() {
 					console.log("click" + this.data);
 					bot.setAttribute("animation-mixer",this.data); 
-				}
+				});
 			}
 		});
 	</script>
@@ -34,7 +34,7 @@
 		   <a-entity 
 		   			cursor position="0 0 -1"
 		            geometry="primitive: sphere; radius: 0.01"
-		            material="color: green; shader: flat">
+		            material="color: blue; shader: flat">
 			</a-entity>  
 		</a-camera>
 
