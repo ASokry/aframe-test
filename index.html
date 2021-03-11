@@ -6,7 +6,22 @@
 	<!-- include aframe-extras for animation-mixer -->
 	<script src="js/aframe-extras.js"></script>
 	<!-- include event-set-component -->
-	<script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+	<!-- <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script> -->
+
+	<script>
+		AFRAME.registerComponent('animation-clip', {
+			schema: {
+				default: ''
+			},
+			init: function() {
+				const bot = document.querySelector('#bot'); 
+				this.el.addEventListener('click', function() {
+					console.log("click" + this.data);
+					bot.setAttribute("animation-mixer",this.data); 
+				}
+			}
+		});
+	</script>
 </head>
 <body>
 	<a-scene>
@@ -18,12 +33,12 @@
     		<!-- raycaster="objects: .clickable" -->
 		   <a-entity 
 		   			cursor position="0 0 -1"
-		            geometry="primitive: sphere; radius: 0.005"
+		            geometry="primitive: sphere; radius: 0.01"
 		            material="color: green; shader: flat">
 			</a-entity>  
 		</a-camera>
 
-		<a-text value="Pizza Time!" position="-0.5 0 -1" color="green" rotation="0 0 0" scale="2 2 2" event-set__run="_event: click; _target: #bot; animation-mixer:clip: Idle"></a-text>
+		<a-text animation-clip="clip: Run; crossFadeDuration: 0.3" value="Pizza Time!" position="-0.5 0 -1" color="green" rotation="0 0 0" scale="2 2 2"></a-text>
 
     	<a-entity
 			id="bot"
