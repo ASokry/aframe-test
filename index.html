@@ -5,21 +5,8 @@
 	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 	<!-- include aframe-extras for animation-mixer -->
 	<script src="js/aframe-extras.js"></script>
-
-	<script>
-		AFRAME.registerComponent('animation-control', {
-		  schema: {default: ''},
-		  init: function() {
-		     
-		    var bot = document.querySelector('#bot'); 
-		  
-			this.el.addEventListener('click', function() {
-				console.log("click" + this.data); 
-				bot.setAttribute("animation-mixer",this.data); 
-			});     
-		  }
-		});
-	</script>
+	<!-- include event-set-component -->
+	<script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
 </head>
 <body>
 	<a-scene>
@@ -28,39 +15,25 @@
     	</a-assets>
 
     	<a-camera position="0 2 4">
-		   <!-- <a-entity 
-		            raycaster="objects: .clickable"
+    		<!-- raycaster="objects: .clickable" -->
+		   <a-entity 
+		   			cursor
 		            position="0 0 -1"
-		            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+		            geometry="primitive: sphere; radius: 1"
 		            material="color: green; shader: flat">
-			</a-entity>   -->
-			<a-cursor color="blue"/>
+			</a-entity>  
 		</a-camera>
 
-		<a-text class="clickable" animation-control="clip: Run; crossFadeDuration: .3" value="Pizza Time!" position="-0.5 0 -1" color="green" rotation="0 0 0"></a-text>
+		<a-text value="Pizza Time!" position="-0.5 0 -1" color="green" rotation="0 0 0" scale="2 2 2" event-set__run="_event: click; _target: #bot; animation-mixer: 'clip: Idle'"></a-text>
 
     	<a-entity
 			id="bot"
-			cursor-listener
-			class="clickable" 
-			animation-control="clip: Run; crossFadeDuration: .3"
     		scale="1 1 1"
             position="0 1 -2.5"
             rotation="0 0 0"
     		gltf-model="#model"
     		animation-mixer="clip: Idle"
     	></a-entity>
-		<!-- <a-entity 
-			id="bot"
-			cursor-listener
-			class="clickable" 
-			animation-control="clip: Run; crossFadeDuration: .3"
-    		scale="1 1 1"
-            position="0 1 -1"
-            rotation="-90 0 0"
-    		gltf-model="#model"
-    		animation-mixer="clip: Idle"
-    	></a-entity> -->
 	</a-scene>
 </body>
 </html>
