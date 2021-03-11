@@ -11,13 +11,12 @@
 	<script>
 		AFRAME.registerComponent('animation-clip', {
 			schema: {
-				type: 'string',
-				default: ''
+				default: 'hi'
 			},
 			init: function() {
 				const bot = document.querySelector('#bot'); 
 				this.el.addEventListener('click', function() {
-					console.log("click" + this.data);
+					console.log("click " + this.data);
 					bot.setAttribute("animation-mixer",this.data); 
 				});
 			}
