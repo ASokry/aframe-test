@@ -7,19 +7,9 @@
 	<script src="js/aframe-extras.js"></script>
 
 	<script>
-		AFRAME.registerComponent('collider-check', {
-		  dependencies: ['raycaster'],
-
-		  init: function () {
-		    this.el.addEventListener('raycaster-intersection', function () {
-		      console.log('Player hit something!');
-		    });
-		  }
-		});
-		
 		AFRAME.registerComponent('animation-control', {
 		  schema: {default: ''},
-		  update: function() {
+		  init: function() {
 		     
 		    var bot = document.querySelector('#bot'); 
 		  
@@ -38,12 +28,13 @@
     	</a-assets>
 
     	<a-camera position="0 2 4">
-		   <a-entity 
+		   <!-- <a-entity 
 		            raycaster="objects: .clickable"
 		            position="0 0 -1"
 		            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
 		            material="color: green; shader: flat">
-			</a-entity>  
+			</a-entity>   -->
+			<a-cursor color="blue"/>
 		</a-camera>
 
 		<a-text class="clickable" animation-control="clip: Run; crossFadeDuration: .3" value="Pizza Time!" position="-0.5 0 -1" color="green" rotation="0 0 0"></a-text>
