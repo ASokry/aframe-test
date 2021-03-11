@@ -5,8 +5,6 @@
 	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 	<!-- include aframe-extras for animation-mixer -->
 	<script src="js/aframe-extras.js"></script>
-    <!-- include ar.js for A-Frame -->
-	<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
 	<script>
 		AFRAME.registerComponent('animation-control', {
@@ -16,14 +14,15 @@
 		    const bot = document.querySelector('#bot'); 
 		  
 			this.el.addEventListener('click', () => {
+				console.log("click" + this.data); 
 				bot.setAttribute("animation-mixer",this.data); 
 			});     
 		  }
 		});
 	</script>
 </head>
-<body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs>
+<body>
+	<a-scene>
 		<a-assets>
       		<a-asset-item id="model" src="test2.gltf"></a-asset-item>
     	</a-assets>
@@ -39,28 +38,28 @@
 
 		<a-entity id= "run" class="clickable" animation-control="clip: Run; crossFadeDuration: .3" text="value: HELLO" material="color: red;" position="0 0 -1"></a-entity>
 
-    	<a-marker type='pattern' url='pattern-marker.patt'>
-    		<a-entity
-	    		scale="1 1 1"
-	            position="0 1 -2.5"
-	            rotation="0 0 0"
-	    		gltf-model="#model"
-	    		animation-mixer="clip: Idle"
-	    	></a-entity>
-    		<a-entity 
-    			id="bot"
-    			cursor-listener
-    			class="clickable" 
-    			animation-control="clip: Run; crossFadeDuration: .3"
-	    		scale="1 1 1"
-	            position="0 1 -1"
-	            rotation="-90 0 0"
-	    		gltf-model="#model"
-	    		animation-mixer="clip: Idle"
-	    	></a-entity>
-    	</a-marker>
-
-    	<a-entity camera></a-entity>
+    	<a-entity
+			id="bot"
+			cursor-listener
+			class="clickable" 
+			animation-control="clip: Run; crossFadeDuration: .3"
+    		scale="1 1 1"
+            position="0 1 -2.5"
+            rotation="0 0 0"
+    		gltf-model="#model"
+    		animation-mixer="clip: Idle"
+    	></a-entity>
+		<!-- <a-entity 
+			id="bot"
+			cursor-listener
+			class="clickable" 
+			animation-control="clip: Run; crossFadeDuration: .3"
+    		scale="1 1 1"
+            position="0 1 -1"
+            rotation="-90 0 0"
+    		gltf-model="#model"
+    		animation-mixer="clip: Idle"
+    	></a-entity> -->
 	</a-scene>
 </body>
 </html>
