@@ -9,11 +9,11 @@
 	<script>
 		AFRAME.registerComponent('animation-control', {
 		  schema: {default: ''},
-		  init() {
+		  update: function() {
 		     
-		    const bot = document.querySelector('#bot'); 
+		    var bot = document.querySelector('#bot'); 
 		  
-			this.el.addEventListener('click', () => {
+			this.el.addEventListener('click', function() {
 				console.log("click" + this.data); 
 				bot.setAttribute("animation-mixer",this.data); 
 			});     
@@ -30,13 +30,12 @@
     	<a-camera position="0 2 4">
 		   <a-entity 
 		            raycaster="objects: .clickable"
-		            position="0 0 -1"
 		            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
 		            material="color: green; shader: flat">
 			</a-entity>  
 		</a-camera>
 
-		<a-entity class="clickable" animation-control="clip: Run; crossFadeDuration: .3" text="value: HELLO" material="color: red;" position="0 0 -1" scale="0.5 .6 .3"></a-entity>
+		<a-text class="clickable" animation-control="clip: Run; crossFadeDuration: .3" value="Pizza Time!" position="-0.5 0 -1" color="green" rotation="-90 0 0"></a-text>
 
     	<a-entity
 			id="bot"
