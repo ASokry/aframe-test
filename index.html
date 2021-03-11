@@ -17,14 +17,13 @@
     	<a-camera position="0 2 4">
     		<!-- raycaster="objects: .clickable" -->
 		   <a-entity 
-		   			cursor
-		            position="0 0 -1"
-		            geometry="primitive: sphere; radius: 1"
+		   			cursor position="0 0 -1"
+		            geometry="primitive: sphere; radius: 0.005"
 		            material="color: green; shader: flat">
 			</a-entity>  
 		</a-camera>
 
-		<a-text value="Pizza Time!" position="-0.5 0 -1" color="green" rotation="0 0 0" scale="2 2 2" event-set__run="_event: click; _target: #bot; animation-mixer: 'clip: Idle'"></a-text>
+		<a-text value="Pizza Time!" position="-0.5 0 -1" color="green" rotation="0 0 0" scale="2 2 2" event-set__run="_event: click; _target: #bot; animation-mixer:clip: Idle"></a-text>
 
     	<a-entity
 			id="bot"
