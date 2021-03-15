@@ -16,6 +16,11 @@
 			init: function() {
 				var data = this.data;
 				const bot = document.querySelector('#bot'); 
+				this.el.addEventListener('mouseenter', function() {
+					console.log("mouseenter " + data);
+					this.el.setAttribute("color","red");
+				});
+
 				this.el.addEventListener('click', function() {
 					console.log("click " + data);
 					bot.setAttribute("animation-mixer",data); 
