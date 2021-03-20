@@ -52,8 +52,22 @@
 
 		<a-entity
 			class="clickable"
-			position="0 1.8 -1"
-			scale="2 2 2"
+			position="-2 1.8 -3"
+			scale="1 1 1"
+			rotation="0 -45 0"
+			text="value: RUN; align: center; color:black; width: 1; wrapCount: 5"
+			geometry="primitive: plane; width: auto; height: auto;"
+  			material="color: pink; visible: true; shader: flat;"
+  			animation-clip="clip: Run; crossFadeDuration: 0.3" 
+  			event-set__enter="_event:mouseenter; text.color: red"
+  			event-set__leave="_event:mouseleave; text.color: black"
+		></a-entity>
+
+		<a-entity
+			class="clickable"
+			position="2 1.8 -3"
+			scale="1 1 1"
+			rotation="0 45 0"
 			text="value: RUN; align: center; color:black; width: 1; wrapCount: 5"
 			geometry="primitive: plane; width: auto; height: auto;"
   			material="color: pink; visible: true; shader: flat;"
@@ -64,7 +78,7 @@
 
     	<a-entity
 			id="bot"
-            position="0 0 -1"
+            position="0 0 -3"
     		gltf-model="#model"
     		animation-mixer="clip: Idle"
     	></a-entity>
