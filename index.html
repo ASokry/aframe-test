@@ -30,7 +30,8 @@
 	<a-scene>
 		<a-assets>
       		<a-asset-item id="model" src="test2.gltf"></a-asset-item>
-      		<img id="chrome" src="chrome.jpg"> 
+      		<!-- <img id="chrome" src="chrome.jpg">  -->
+      		<a-asset-item id="forest" src="forest/scene.gltf"></a-asset-item>
     	</a-assets>
 
     	<a-camera>
@@ -42,6 +43,15 @@
 		            material="color: blue; shader: flat">
 			</a-entity>  
 		</a-camera>
+
+		<a-entity gltf-model="#forest"></a-entity>
+
+		<a-entity
+			id="bot"
+            position="0 0 -3"
+    		gltf-model="#model"
+    		animation-mixer="clip: Idle"
+    	></a-entity>
 
 		<!-- <a-entity 
 			animation-clip="clip: Run; crossFadeDuration: 0.3" 
@@ -75,13 +85,6 @@
   			event-set__enter="_event:mouseenter; text.color: red"
   			event-set__leave="_event:mouseleave; text.color: black"
 		></a-entity>
-
-    	<a-entity
-			id="bot"
-            position="0 0 -3"
-    		gltf-model="#model"
-    		animation-mixer="clip: Idle"
-    	></a-entity>
 	</a-scene>
 </body>
 </html>
