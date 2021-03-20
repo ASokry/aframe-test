@@ -5,9 +5,9 @@
 	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 	<!-- include aframe-extras for animation-mixer -->
 	<script src="js/aframe-extras.js"></script>
-	<script src="js/aframe-text-geometry-component.min.js"></script>
+	<!-- <script src="js/aframe-text-geometry-component.min.js"></script> -->
 	<!-- include event-set-component -->
-	<!-- <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script> -->
+	<script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
 
 	<script>
 		AFRAME.registerComponent('animation-clip', {
@@ -52,9 +52,12 @@
 		<a-entity
 			position="0 1.8 -1"
 			scale="0.5 0.5 1"
-			text="value: RUN; align: center;"
+			text="value: RUN; align: center; color:black;"
 			geometry="primitive: plane; width: auto; height: auto;"
   			material="color: pink; visible: true"
+  			animation-clip="clip: Run; crossFadeDuration: 0.3" 
+  			event-set__enter="_event:mouseenter; text.color: red"
+  			event-set__leave="_event:mouseleave; text.color: black"
 		></a-entity>
 
     	<a-entity
