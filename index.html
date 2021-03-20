@@ -32,6 +32,7 @@
       		<a-asset-item id="model" src="test2.gltf"></a-asset-item>
       		<!-- <img id="chrome" src="chrome.jpg">  -->
       		<a-asset-item id="forest" src="forest/scene.gltf"></a-asset-item>
+      		<img id="sky" src="stardust.jpg">
     	</a-assets>
 
     	<a-camera>
@@ -44,6 +45,8 @@
 			</a-entity>  
 		</a-camera>
 
+		<a-sky src="#sky"></a-sky>
+		
 		<a-entity 
 			gltf-model="#forest"
 			position="0 -1 0"
